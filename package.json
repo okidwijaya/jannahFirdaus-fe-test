@@ -1,20 +1,31 @@
 {
-  "name": "jannah-app",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
-  },
-  "dependencies": {
-    "next": "12.1.6",
-    "react": "18.1.0",
-    "react-dom": "18.1.0"
-  },
-  "devDependencies": {
-    "eslint": "8.15.0",
-    "eslint-config-next": "12.1.6"
-  }
+    "name": "jannah-app",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+        "dev": "next dev",
+        "build": "next build",
+        "start": "next start",
+        "lint": "next lint"
+    },
+    "dependencies": {
+        "@emotion/react": "^11.9.0",
+        "@emotion/server": "^11.4.0",
+        "@emotion/styled": "^11.8.1",
+        "@mui/icons-material": "^5.6.2",
+        "@mui/material": "^5.7.0",
+        "axios": "^0.25.0",
+        "next": "12.1.6",
+        "react": "^18.1.0",
+        "react-dom": "18.1.0",
+        "react-redux": "^7.2.0",
+        "react-toastify": "^8.1.1",
+        "redux": "^4.0.5",
+        "redux-logger": "^3.0.6",
+        "redux-thunk": "^2.3.0"
+    },
+    "devDependencies": {
+        "eslint": "8.15.0",
+        "eslint-config-next": "12.1.6"
+    }
 }
