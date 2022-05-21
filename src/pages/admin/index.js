@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
 import Datas from "src/common/components/Datas";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { dataProduct } from "src/store/actions/product";
 import Loadingcomponent from "src/common/components/loading/LoadingComponent";
 
 const Admin = () => {
+  const productData = useSelector((state) => state.products.data);
   const dispatch = useDispatch();
   const [load, setload] = useState(false);
 
@@ -13,7 +14,10 @@ const Admin = () => {
     setTimeout(() => {
       setload(true);
     }, 3000);
-    setload(false);
+    if (productData !== null || undefined) {
+      setload(false);
+    }
+    console.log("productData : ", productData);
   }, [dispatch]);
 
   return (
