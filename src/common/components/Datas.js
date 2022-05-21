@@ -172,10 +172,10 @@ export default function CustomPaginationActionsTable() {
   useEffect(() => {
     setFilteredData(productData);
     setTimeout(() => {
-      setload(true);
+      setLoad(true);
     }, 3000);
     if (productData !== null || undefined) {
-      setload(false);
+      setLoad(false);
     }
   }, []);
 
