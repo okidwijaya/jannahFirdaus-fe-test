@@ -120,6 +120,7 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
 
 export default function CustomPaginationActionsTable() {
   const productData = useSelector((state) => state.products.data);
+  console.log("productData data : ", productData);
 
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(5);
