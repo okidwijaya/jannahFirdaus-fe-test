@@ -148,7 +148,7 @@ export default function CustomPaginationActionsTable() {
       setLoad(false);
     }
     setLoad(true);
-  }, []);
+  });
 
   const emptyRows =
     page > 0 ? Math.max(0, (1 + page) * rowsPerPage - rows.length) : 0;
@@ -171,12 +171,6 @@ export default function CustomPaginationActionsTable() {
 
   useEffect(() => {
     setFilteredData(productData);
-    setTimeout(() => {
-      setLoad(true);
-    }, 3000);
-    if (productData !== null || undefined) {
-      setLoad(false);
-    }
   }, []);
 
   const handleFilter = (event) => {
@@ -230,13 +224,13 @@ export default function CustomPaginationActionsTable() {
             value={wordEntered}
             onChange={handleFilter}
           />
-          {/* <div className="searchIcon">
+          <div className="searchIcon">
             {filteredData.length === 0 ? (
               <p>search</p>
             ) : (
               <Button onClick={clearInput}>Clear Search</Button>
             )}
-          </div> */}
+          </div>
           <TableContainer component={Paper}>
             <Table
               sx={{ width: 350, width: "100%" }}

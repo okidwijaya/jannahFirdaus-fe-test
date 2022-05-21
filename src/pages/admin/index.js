@@ -13,11 +13,11 @@ const Admin = () => {
     dispatch(dataProduct(1, 100, "", "", ""));
     setTimeout(() => {
       setload(true);
-    }, 3000);
+    }, 5000);
     if (productData !== null || undefined) {
       setload(false);
     }
-    console.log("productData : ", productData);
+    // console.log("productData : ", productData);
   }, [dispatch]);
 
   return (
