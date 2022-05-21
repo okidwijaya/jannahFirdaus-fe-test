@@ -224,13 +224,13 @@ export default function CustomPaginationActionsTable() {
             value={wordEntered}
             onChange={handleFilter}
           />
-          <div className="searchIcon">
+          {/* <div className="searchIcon">
             {filteredData.length === 0 ? (
               <p>search</p>
             ) : (
               <Button onClick={clearInput}>Clear Search</Button>
             )}
-          </div>
+          </div> */}
           <TableContainer component={Paper}>
             <Table
               sx={{ width: 350, width: "100%" }}
