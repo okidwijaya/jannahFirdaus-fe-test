@@ -171,6 +171,12 @@ export default function CustomPaginationActionsTable() {
 
   useEffect(() => {
     setFilteredData(productData);
+    setTimeout(() => {
+      setload(true);
+    }, 3000);
+    if (productData !== null || undefined) {
+      setload(false);
+    }
   }, []);
 
   const handleFilter = (event) => {
