@@ -9,12 +9,7 @@ const Admin = () => {
   const [load, setload] = useState(false);
 
   useEffect(() => {
-    let page = "1";
-    let type = "";
-    let limit = "1000";
-    let search = "";
-    let location = "";
-    dispatch(dataProduct(page, limit, type, search, location));
+    dispatch(dataProduct(1, 100, "", "", ""));
     setTimeout(() => {
       setload(true);
     }, 3000);

@@ -118,10 +118,9 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
   },
 }));
 
-export default function CustomPaginationActionsTable(props) {
+export default function CustomPaginationActionsTable() {
   const productData = useSelector((state) => state.products.data);
-  // console.log("table data", productData);
-  // const dispatch = useDispatch();
+
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(5);
   const [load, setLoad] = useState(false);
@@ -144,15 +143,13 @@ export default function CustomPaginationActionsTable(props) {
   };
 
   useEffect(() => {
-    // if (productData === null || undefined) ;
     if (productData) {
       setRows(productData);
       setLoad(false);
     }
     setLoad(true);
-  });
+  }, []);
 
-  // Avoid a layout jump when reaching the last page with empty rows.
   const emptyRows =
     page > 0 ? Math.max(0, (1 + page) * rowsPerPage - rows.length) : 0;
 
@@ -169,8 +166,12 @@ export default function CustomPaginationActionsTable(props) {
     setId(id);
   };
 
-  const [filteredData, setFilteredData] = useState(productData);
+  const [filteredData, setFilteredData] = useState(null);
   const [wordEntered, setWordEntered] = useState("");
+
+  useEffect(() => {
+    setFilteredData(productData);
+  }, []);
 
   const handleFilter = (event) => {
     const searchWord = event.target.value;
@@ -221,7 +222,6 @@ export default function CustomPaginationActionsTable(props) {
             label="Search"
             // defaultValue=" "
             value={wordEntered}
-            // helperText="Some important text"
             onChange={handleFilter}
           />
           <div className="searchIcon">
@@ -265,7 +265,6 @@ export default function CustomPaginationActionsTable(props) {
                       fontSize: 16,
                       textAlign: "center",
                     }}
-                    // align="right"
                   >
                     <Box
                       sx={{
@@ -273,8 +272,6 @@ export default function CustomPaginationActionsTable(props) {
                         flexDirection: "row",
                         p: 1,
                         m: 1,
-                        // bgcolor: "background.paper",
-                        // borderRadius: 1,
                       }}
                     >
                       <p>Action</p>
@@ -303,19 +300,6 @@ export default function CustomPaginationActionsTable(props) {
                   .map((row) => (
                     <TableRow key={row.id}>
                       <TableCell component="th" scope="row">
-                        {/* <Image
-                      // loader={productImage}
-                      // src={
-                      //   rows.images
-                      //     ? `https://pertaniansehat.com/v01/wp-content/uploads/2015/08/default-placeholder.png`
-                      //     : process.env.NEXT_PUBLIC_API_URL + `/${rows.images}`
-                      // }
-                      // loader={img !== undefined ? productImage : defaultImages}
-                      // src={process.env.NEXT_PUBLIC_API_URL + `/${rows.images}}
-                      alt="google"
-                      width={50}
-                      height={50}
-                    /> */}
                         <Image
                           src={
                             row
@@ -331,9 +315,6 @@ export default function CustomPaginationActionsTable(props) {
                         />
                       </TableCell>
                       <TableCell style={{ width: 160 }} align="right">
-                        {/* {process.env.NEXT_PUBLIC_API_URL +
-                      "/" +
-                      JSON.parse(row.images)[0]} */}
                         {row.name}
                       </TableCell>
                       <TableCell style={{ width: 160 }} align="right">
@@ -418,10 +399,24 @@ export default function CustomPaginationActionsTable(props) {
           </TableContainer>
         </div>
       ) : (
-        // <div style={{ width: "75%", height: "100%", margin: "auto" }}>
         <Loadingcomponent />
-        // </div>
       )}
     </>
   );
+}
+
+{
+  /* <Image
+// loader={productImage}
+// src={
+//   rows.images
+//     ? `#`
+//     : process.env.NEXT_PUBLIC_API_URL + `/${rows.images}`
+// }
+// loader={img !== undefined ? productImage : defaultImages}
+// src={process.env.NEXT_PUBLIC_API_URL + `/${rows.images}}
+alt="google"
+width={50}
+height={50}
+ /> */
 }

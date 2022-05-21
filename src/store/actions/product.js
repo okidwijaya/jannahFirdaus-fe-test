@@ -18,9 +18,6 @@ export const dataProduct = (page, limit, type, search, location) => {
   return (dispatch) => {
     getVehicle(page, limit, type, search, location)
       .then((res) => {
-        // setLoad(true);
-        // console.log("response:", res.data.result.data[0].images);
-        // setRows(res.data.result.data);
         dispatch(productAction(res.data.result.data));
       })
       .catch((err) => {

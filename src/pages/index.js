@@ -1,3 +1,4 @@
+import React, { useState, useEffect } from "react";
 import Head from "next/head";
 import Link from "next/link";
 // import Image from "next/image";
@@ -5,6 +6,12 @@ import styles from "/src/common/styles/Home.module.css";
 import Button from "@mui/material/Button";
 
 export default function Home() {
+  const [load, setLoad] = useState(false);
+
+  const handleClick = () => {
+    setLoad(true);
+  };
+
   return (
     <div className={styles.container}>
       <Head>
@@ -19,7 +26,9 @@ export default function Home() {
           Product Administer App
         </h1>
         <Link href="/admin">
-          <Button variant="contained">Admin Page</Button>
+          <Button variant="contained" onClick={handleClick}>
+            {load ? "Loading...." : "Admin Page"}
+          </Button>
         </Link>
       </main>
 
